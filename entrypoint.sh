@@ -1,10 +1,10 @@
 #!/bin/bash
 set -e
 
-# Set webhook URL (replace with your Render URL)
-if [ -n "$RENDER_EXTERNAL_URL" ]; then
-    curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/setWebhook?url=${RENDER_EXTERNAL_URL}"
-    echo "Webhook set to: ${RENDER_EXTERNAL_URL}"
+# Set Telegram webhook using Render's provided URL
+if [ -n "$RENDER_EXTERNAL_URL" ] && [ -n "$BOT_TOKEN" ]; then
+    echo "Setting Telegram webhook to: ${RENDER_EXTERNAL_URL}"
+    curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/setWebhook?url=${RENDER_EXTERNAL_URL}" || true
 fi
 
 # Start Apache
