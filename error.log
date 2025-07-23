@@ -1,0 +1,1 @@
+[INIT] Log started at <?= date('Y-m-d H:i:s') ?> 

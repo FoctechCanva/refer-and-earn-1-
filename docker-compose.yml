@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    environment:
+      BOT_TOKEN: "your_telegram_bot_token"
+      RENDER_EXTERNAL_URL: "http://localhost:8080"
+    volumes:
+      - .:/var/www/html
